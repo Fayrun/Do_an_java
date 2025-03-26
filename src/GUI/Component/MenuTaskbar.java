@@ -1,20 +1,30 @@
 package GUI.Component;
 
+import GUI.Log_In;
 import GUI.Main;
-import GUI.Panel.QuanLyThuocTinhSP;
 import GUI.Panel.QuatPanel;
 import GUI.Panel.TrangChu;
 import GUI.Panel.PhieuNhapPanel;
 import GUI.Panel.NhaCungCapPanel;
 import GUI.Panel.PhieuXuatPanel;
 import GUI.Panel.KhuyenMaiPanel;
-import GUI.Log_In;
+import GUI.Panel.HoaDonPanel;
+import GUI.Panel.BanQuatPanel;
+
+import GUI.Panel.QuanLyThuocTinhSP;
+// ...
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * Thanh menu bên trái hiển thị các chức năng:
+ *  - Trang chủ
+ *  - Quản lý quạt
+ *  - ... (thêm nút khác nếu muốn)
+ */
 public class MenuTaskbar extends JPanel {
-
     private Main mainFrame;
 
     public MenuTaskbar(Main main) {
@@ -48,6 +58,15 @@ public class MenuTaskbar extends JPanel {
         });
         menuPanel.add(btnTrangChu);
 
+        
+        // NÚT BÁN HÀNG CỦA NHÂN VIÊN
+        JButton btnBanQuat = new JButton("Bán quạt");
+        btnBanQuat.addActionListener(e -> {
+            mainFrame.setPanel(new BanQuatPanel());
+        });
+        menuPanel.add(btnBanQuat);
+
+        
         // Nút Quản lý quạt
         JButton btnQuanLyQuat = new JButton("Quản lý quạt");
         btnQuanLyQuat.setHorizontalAlignment(SwingConstants.LEFT);
@@ -55,32 +74,34 @@ public class MenuTaskbar extends JPanel {
             mainFrame.setPanel(new QuatPanel());
         });
         menuPanel.add(btnQuanLyQuat);
-
-        // Nút Quản lý thuộc tính
-        JButton btnThongtinChucNang = new JButton("Thông tin chức năng");
-        btnThongtinChucNang.setHorizontalAlignment(SwingConstants.LEFT);
-        btnThongtinChucNang.addActionListener(e -> {
+        
+        
+        
+        // Nút quản lý chức năng
+        JButton btnChucNang = new JButton("Quản lý thông tin sản phẩm");
+        btnChucNang.setHorizontalAlignment(SwingConstants.LEFT);
+        btnChucNang.addActionListener(e -> {
             mainFrame.setPanel(new QuanLyThuocTinhSP(mainFrame));
         });
-
-        menuPanel.add(btnThongtinChucNang);
-
+        menuPanel.add(btnChucNang);
+        // ...
+        JButton btnHoaDon = new JButton("Hóa đơn");
+        btnHoaDon.setHorizontalAlignment(SwingConstants.LEFT);
+        btnHoaDon.addActionListener(e -> {
+            mainFrame.setPanel(new HoaDonPanel());
+        });
+        menuPanel.add(btnHoaDon);
+        
         // Nút Quản lý phiếu nhập
+        
         JButton btnPhieuNhap = new JButton("Phiếu nhập");
         btnPhieuNhap.setHorizontalAlignment(SwingConstants.LEFT);
         btnPhieuNhap.addActionListener(e -> {
             mainFrame.setPanel(new PhieuNhapPanel());
         });
         menuPanel.add(btnPhieuNhap);
-
-        // Nút Nhà cung cấp
-        JButton btnNhaCungCap = new JButton("Nhà Cung Cấp");
-        btnNhaCungCap.setHorizontalAlignment(SwingConstants.LEFT);
-        btnNhaCungCap.addActionListener(e -> {
-            mainFrame.setPanel(new NhaCungCapPanel());
-        });
-        menuPanel.add(btnNhaCungCap);
-
+                
+        
         // Nút Quản lý phiếu Xuất
         JButton btnPhieuXuat = new JButton("Phiếu xuất");
         btnPhieuXuat.setHorizontalAlignment(SwingConstants.LEFT);
@@ -88,9 +109,18 @@ public class MenuTaskbar extends JPanel {
             mainFrame.setPanel(new PhieuXuatPanel());
         });
         menuPanel.add(btnPhieuXuat);
-
+        
+        // Nút quản lý nhà cung cấp
+        JButton btnNhaCungCap = new JButton("Nhà Cung Cấp");
+        btnNhaCungCap.setHorizontalAlignment(SwingConstants.LEFT);
+        btnNhaCungCap.addActionListener(e -> {
+            mainFrame.setPanel(new NhaCungCapPanel());
+        });
+        menuPanel.add(btnNhaCungCap);
+        
         // Nút quản lý khuyến mãi
         JButton btnKhuyenMai = new JButton("Khuyến mãi");
+        btnKhuyenMai.setHorizontalAlignment(SwingConstants.LEFT);
         btnKhuyenMai.addActionListener(e -> {
             mainFrame.setPanel(new KhuyenMaiPanel());
         });
@@ -111,8 +141,11 @@ public class MenuTaskbar extends JPanel {
             }
         });
         menuPanel.add(btnDangXuat);
+        // Thêm các nút khác 
+        // ...
 
-        // Thêm các nút khác nếu cần
         this.add(menuPanel, BorderLayout.CENTER);
+        
+        
     }
 }

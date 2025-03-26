@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * HeaderTitle - hiển thị tiêu đề lớn ở đầu panel/dialog (nếu cần).
+ * HeaderTitle - hiển thị tiêu đề lớn ở đầu panel/dialog (nếu muốn dùng).
  */
 public class HeaderTitle extends JPanel {
 

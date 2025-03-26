@@ -14,7 +14,7 @@ import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.border.EmptyBorder;
 
-public class itemTaskbar extends JPanel implements MouseListener {
+public class ItemTaskbar extends JPanel implements MouseListener {
 
     Color FontColor = new Color(96, 125, 139);
     Color ColorBlack = new Color(26, 26, 26);
@@ -24,7 +24,7 @@ public class itemTaskbar extends JPanel implements MouseListener {
     JLabel img;
     public boolean isSelected;
 
-    public itemTaskbar(String linkIcon, String content) {
+    public ItemTaskbar(String linkIcon, String content) {
         this.setLayout(new FlowLayout(1, 10, 7));
         this.setPreferredSize(new Dimension(225, 45));
         this.setBackground(DefaultColor);
@@ -43,7 +43,7 @@ public class itemTaskbar extends JPanel implements MouseListener {
         this.add(pnlContent);
     }
 
-    public itemTaskbar(String linkIcon, String content1, String content2) {
+    public ItemTaskbar(String linkIcon, String content1, String content2) {
         this.setLayout(new FlowLayout(0, 20, 50));
 //        this.setPreferredSize(new Dimension(250, 45));
         this.setBackground(DefaultColor);
@@ -65,7 +65,7 @@ public class itemTaskbar extends JPanel implements MouseListener {
 //        box[i].setBorder(new EmptyBorder(20, 20, 20, 20));
     }
 
-    public itemTaskbar(String linkImg, String tenSP, int soLuong) {
+    public ItemTaskbar(String linkImg, String tenSP, int soLuong) {
 
         this.setLayout(new BorderLayout(0, 0));
         this.setPreferredSize(new Dimension(380, 60));
@@ -94,7 +94,7 @@ public class itemTaskbar extends JPanel implements MouseListener {
 
     }
 
-    public itemTaskbar(String linkIcon, String content, String content2, int n) {
+    public ItemTaskbar(String linkIcon, String content, String content2, int n) {
         this.setLayout(new BorderLayout(0, 0));
         this.setBackground(DefaultColor);
         this.addMouseListener(this);
